@@ -114,10 +114,10 @@ def build(outdir=None, device_sdk=None, simulator_sdk=None, **kwargs):
         abort(textwrap.dedent(message).format(**locals()))
 
     if _confirm_ready_for_release("assets/strings"):
-		sys.exit(1)
+      sys.exit(1)
 
     outdir = os.path.abspath(os.path.expanduser(outdir))
-    print colors.yellow("Will save release sdk to {outdir}".format(outdir=outdir))
+# print colors.yellow("Will save release sdk to {outdir}".format(outdir=outdir))
     out_subdir = "card.io_ios_sdk_{0}".format(_version_str(show_dirty=True))
 
     xcode_preprocessor_flags.update(kwargs)
@@ -164,7 +164,7 @@ def build(outdir=None, device_sdk=None, simulator_sdk=None, **kwargs):
 
                 # Build the Archive release
                 print(colors.blue("({build_config}) Building Archive (arm* architectures specified in build config)".format(**locals())))
-                base_xcodebuild_command = "xcrun xcodebuild -scheme \"CardIO Static Library\" -target CardIO-static -configuration {build_config} archive".format(**locals())
+                base_xcodebuild_command = "xcrun xcodebuild -scheme \"CardIO Static Library\" -target CardIO-static -destination 'platform=iOS Simulator,name=iPhone 8,OS=13.1' -configuration {build_config} archive".format(**locals())
                 build_dir = os.path.join(temp_dir, build_config, "Archive")
                 arch_build_dirs["archive"] = build_dir
                 os.makedirs(build_dir)
