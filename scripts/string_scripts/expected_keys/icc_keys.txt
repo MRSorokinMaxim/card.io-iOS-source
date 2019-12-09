@@ -33,3 +33,4 @@ cardtype_postepay
 cardtype_4etoiles
 cardtype_tarjetaaurora
 cardtype_visa
+cardtype_mir

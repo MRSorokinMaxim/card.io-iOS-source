@@ -58,6 +58,7 @@
     case CardIOCreditCardTypeVisa:
     case CardIOCreditCardTypeMastercard:
     case CardIOCreditCardTypeDiscover:
+    case CardIOCreditCardTypeMir:
       // work back to front to make index calculations easier
       if (numbersWithSpaces.length > 12) {
         [numbersWithSpaces insertString:@" " atIndex:12];
